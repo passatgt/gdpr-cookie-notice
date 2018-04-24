@@ -1,4 +1,4 @@
-//Load locales
+// Load locales
 var gdprCookieNoticeLocales = {};
 
 function gdprCookieNotice(config) {
@@ -19,13 +19,13 @@ function gdprCookieNotice(config) {
 
   // Get the users current cookie selection
   var currentCookieSelection = getCookie();
-  var cookiesAcceptedEvent = new CustomEvent("gdprCookiesEnabled", {detail: currentCookieSelection});
+  var cookiesAcceptedEvent = new CustomEvent('gdprCookiesEnabled', {detail: currentCookieSelection});
 
-  //Show cookie bar if needed
+  // Show cookie bar if needed
   if(!currentCookieSelection) {
     showNotice();
 
-    //Accept cookies on page scroll
+    // Accept cookies on page scroll
     if(config.implicit) {
       acceptOnScroll();
     }
@@ -34,12 +34,12 @@ function gdprCookieNotice(config) {
     document.dispatchEvent(cookiesAcceptedEvent);
   }
 
-  //Get gdpr cookie notice stored value
+  // Get gdpr cookie notice stored value
   function getCookie() {
     return gdprCookies.getJSON(namespace);
   }
 
-  //Delete cookies if needed
+  // Delete cookies if needed
   function deleteCookies(savedCookies) {
     var notAllEnabled = false;
     for (var i = 0; i < categories.length; i++) {
@@ -51,7 +51,7 @@ function gdprCookieNotice(config) {
       }
     }
 
-    //Show the notice if not all categories are enabled
+    // Show the notice if not all categories are enabled
     if(notAllEnabled) {
       showNotice();
     } else {
@@ -59,12 +59,12 @@ function gdprCookieNotice(config) {
     }
   }
 
-  //Hide cookie notice bar
+  // Hide cookie notice bar
   function hideNotice() {
     document.documentElement.classList.remove(pluginPrefix+'-loaded');
   }
 
-  //Write gdpr cookie notice's cookies when user accepts cookies
+  // Write gdpr cookie notice's cookies when user accepts cookies
   function acceptCookies(save) {
     var value = {
       date: new Date(),
@@ -74,7 +74,7 @@ function gdprCookieNotice(config) {
       marketing: true
     };
 
-    //If request was coming from the modal, check for the settings
+    // If request was coming from the modal, check for the settings
     if(save) {
       for (var i = 0; i < categories.length; i++) {
         value[categories[i]] = document.getElementById(pluginPrefix+'-cookie_'+categories[i]).checked;
@@ -83,13 +83,13 @@ function gdprCookieNotice(config) {
     gdprCookies.set(namespace, value, { expires: config.expiration, domain: config.domain });
     deleteCookies(value);
 
-    //Load marketing scripts that only works when cookies are accepted
-    cookiesAcceptedEvent = new CustomEvent("gdprCookiesEnabled", {detail: value});
+    // Load marketing scripts that only works when cookies are accepted
+    cookiesAcceptedEvent = new CustomEvent('gdprCookiesEnabled', {detail: value});
     document.dispatchEvent(cookiesAcceptedEvent);
 
   }
 
-  //Show the cookie bar
+  // Show the cookie bar
   function buildNotice() {
     if(noticeLoaded) {
       return false;
@@ -98,24 +98,24 @@ function gdprCookieNotice(config) {
     var noticeHtml = localizeTemplate('bar.html');
     document.body.insertAdjacentHTML('beforeend', noticeHtml);
 
-    //Load click functions
+    // Load click functions
     setNoticeEventListeners();
 
-    //Make sure its only loaded once
+    // Make sure its only loaded once
     noticeLoaded = true;
   }
 
-  //Show the cookie notice
+  // Show the cookie notice
   function showNotice() {
     buildNotice();
 
-    //Show the notice with a little timeout
+    // Show the notice with a little timeout
     setTimeout(function(){
       document.documentElement.classList.add(pluginPrefix+'-loaded');
     }, config.timeout);
   }
 
-  //Localize templates
+  // Localize templates
   function localizeTemplate(template, prefix) {
     var str = templates[template];
     var data = gdprCookieNoticeLocales[config.locale];
@@ -149,19 +149,19 @@ function gdprCookieNotice(config) {
     }
   }
 
-  //Build modal window
+  // Build modal window
   function buildModal() {
     if(modalLoaded) {
       return false;
     }
 
-    //Load modal template
+    // Load modal template
     var modalHtml = localizeTemplate('modal.html');
 
-    //Append modal into body
+    // Append modal into body
     document.body.insertAdjacentHTML('beforeend', modalHtml);
 
-    //Get empty category list
+    // Get empty category list
     var categoryList = document.querySelector('.'+pluginPrefix+'-modal-cookies');
 
     //Load essential cookies
@@ -173,37 +173,37 @@ function gdprCookieNotice(config) {
     label.classList.remove(pluginPrefix+'-modal-cookie-input-switch');
     input.remove();
 
-    //Load other categories if needed
+    // Load other categories if needed
     if(config.performace) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performace');
     if(config.analytics) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_analytics');
     if(config.marketing) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_marketing');
 
-    //Load click functions
+    // Load click functions
     setModalEventListeners();
 
-    //Update checkboxes based on stored info(if any)
+    // Update checkboxes based on stored info(if any)
     if(currentCookieSelection) {
       document.getElementById(pluginPrefix+'-cookie_performace').checked = currentCookieSelection.performace;
       document.getElementById(pluginPrefix+'-cookie_analytics').checked = currentCookieSelection.analytics;
       document.getElementById(pluginPrefix+'-cookie_marketing').checked = currentCookieSelection.marketing;
     }
 
-    //Make sure modal is only loaded once
+    // Make sure modal is only loaded once
     modalLoaded = true;
   }
 
-  //Show modal window
+  // Show modal window
   function showModal() {
     buildModal();
     document.documentElement.classList.add(pluginPrefix+'-show-modal');
   }
 
-  //Hide modal window
+  // Hide modal window
   function hideModal() {
     document.documentElement.classList.remove(pluginPrefix+'-show-modal');
   }
 
-  //Click functions in the notice
+  // Click functions in the notice
   function setNoticeEventListeners() {
     var settingsButton = document.querySelectorAll('.'+pluginPrefix+'-nav-item-settings')[0];
     var acceptButton = document.querySelectorAll('.'+pluginPrefix+'-nav-item-accept')[0];
@@ -220,7 +220,7 @@ function gdprCookieNotice(config) {
 
   }
 
-  //Click functions in the modal
+  // Click functions in the modal
   function setModalEventListeners() {
     var closeButton = document.querySelectorAll('.'+pluginPrefix+'-modal-close')[0];
     var statementButton = document.querySelectorAll('.'+pluginPrefix+'-modal-footer-item-statement')[0];
@@ -255,7 +255,7 @@ function gdprCookieNotice(config) {
 
   }
 
-  //Settings button on the page somewhere
+  // Settings button on the page somewhere
   var globalSettingsButton = document.querySelectorAll('.'+pluginPrefix+'-settings-button');
   if(globalSettingsButton) {
     for (var i = 0; i < globalSettingsButton.length; i++) {
@@ -267,23 +267,23 @@ function gdprCookieNotice(config) {
   }
 
 
-  //Get document height
+  // Get document height
   function getDocHeight() {
-      var D = document;
-      return Math.max(
-          D.body.scrollHeight, D.documentElement.scrollHeight,
-          D.body.offsetHeight, D.documentElement.offsetHeight,
-          D.body.clientHeight, D.documentElement.clientHeight
-      )
+    var D = document;
+    return Math.max(
+      D.body.scrollHeight, D.documentElement.scrollHeight,
+      D.body.offsetHeight, D.documentElement.offsetHeight,
+      D.body.clientHeight, D.documentElement.clientHeight
+    );
   }
 
-  //Check if at least page is 25% scrolled down
+  // Check if at least page is 25% scrolled down
   function amountScrolled(){
-    var winheight= window.innerHeight || (document.documentElement || document.body).clientHeight
-    var docheight = getDocHeight()
-    var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-    var trackLength = docheight - winheight
-    var pctScrolled = Math.floor(scrollTop/trackLength * 100) // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
+    var winheight= window.innerHeight || (document.documentElement || document.body).clientHeight;
+    var docheight = getDocHeight();
+    var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    var trackLength = docheight - winheight;
+    var pctScrolled = Math.floor(scrollTop/trackLength * 100); // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
     if(pctScrolled > 25 && !cookiesAccepted) {
       cookiesAccepted = true;
       return true;
@@ -292,12 +292,12 @@ function gdprCookieNotice(config) {
     }
   }
 
-  //Accept cookies on scroll
+  // Accept cookies on scroll
   function acceptOnScroll() {
-    window.addEventListener("scroll", function _listener() {
+    window.addEventListener('scroll', function _listener() {
       if(amountScrolled()) {
         acceptCookies();
-        window.removeEventListener("click", _listener);
+        window.removeEventListener('click', _listener);
       }
     });
   }

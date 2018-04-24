@@ -14,7 +14,7 @@ var path = require('path'),
     ecstatic = require('ecstatic');
     htmlToJs = require('gulp-html-to-js');
     html2js = require('gulp-html2js');
-
+    eslint = require('gulp-eslint');
 
 var config = {
     javascript: {
@@ -79,7 +79,14 @@ gulp.task('views:compile', function () {
     .pipe(gulp.dest('src/js/'));
 });
 
-gulp.task('default', function () {
+gulp.task('lint', () => {
+    return gulp.src(['src/js/script.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
+
+gulp.task('default', ['lint'], function () {
     http.createServer(
       ecstatic({ root: __dirname })
     ).listen(3000);
