@@ -27,6 +27,10 @@ $icon_caret: 'data:image/svg+xml;utf8,<svg height="12" viewBox="0 0 8 12" width=
   transform: translateY(100%);
   z-index: 1000;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
   .gdpr-cookie-notice-loaded & {
     transform: translateY(0);
   }
@@ -38,6 +42,13 @@ $icon_caret: 'data:image/svg+xml;utf8,<svg height="12" viewBox="0 0 8 12" width=
     font-size: 14px;
     line-height: 20px;
     text-align: left;
+
+    @media (max-width: 768px) {
+      padding: 0;
+      margin: 0 0 10px 0;
+      font-size: 12px;
+      line-height: 18px;
+    }
   }
 
   &-nav {
@@ -82,7 +93,7 @@ $icon_caret: 'data:image/svg+xml;utf8,<svg height="12" viewBox="0 0 8 12" width=
     background: $modal_overlay;
     overflow: auto;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 10px;
     display: none;
 
     .gdpr-cookie-notice-show-modal & {
@@ -254,6 +265,7 @@ $icon_caret: 'data:image/svg+xml;utf8,<svg height="12" viewBox="0 0 8 12" width=
       justify-content: space-between;
       padding: 15px 16px 16px 16px;
       border-radius: 0 0 6px 6px;
+      flex-wrap: wrap;
 
       &-item {
         height: 40px;
