@@ -5,7 +5,7 @@ This is a javascript solution to show a gdpr compliant cookie notice on your web
 
 ##### Demo
 
-Check this site for a quick demo: https://gdpr-cookie-notice.github.io
+Check this site for a quick demo: https://passatgt.github.io/gdpr-cookie-notice/
 
 ##### How it works?
 
