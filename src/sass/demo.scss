@@ -1,0 +1,9 @@
+@import "../../node_modules/mustard-ui/src/scss/mustard-ui";
+
+body, html {
+  height: 100%;
+}
+
+body, h1, h2, h3, h4, h5 {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+}

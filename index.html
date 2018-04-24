@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GDPR Cookie Notice</title>
+    <link rel="stylesheet" type="text/css" href="dist/demo.css" />
+    <link rel="stylesheet" type="text/css" href="dist/style.css" />
+  </head>
+  <body>
+
+    <main>
+
+      <section id="getting-started" class="section-tertiary">
+            <div class="container container-small">
+                <h3>GDPR Cookie Notice</h3>
+                <p>This is a javascript solution built for nold.io to show a gdpr compliant cookie notice on your website. An example runs on this page, so you can play around with it.</p>
+
+                <h3>Getting started</h3>
+                <p>You can download the script from Github.</p>
+
+                <strong>Include the CSS and Javascript files:</strong>
+                <pre class="language-html"><code class="language-html">&lt;script type=&quot;text/javascript&quot; src=&quot;/gdpr-cookie-notice/dist/script.js&quot;&gt;&lt;/script&gt;</code></pre>
+                <pre class="language-html"><code class="language-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/gdpr-cookie-notice/dist/style.css&quot; /&gt;</code></pre>
+
+                <strong>Init the plugin with the following config file</strong>
+                <pre class="language-javascript"><code class="language-javascript">gdprCookieNotice({
+  locale: 'en', //This is the default value
+  timeout: 500, //Time until the cookie bar appears
+  expiration: 30, //This is the default value, in days
+  domain: '.nold.io', //If you run the same cookie notice on all subdomains, define the main domain starting with a .
+  implicit: true, //Accept cookies on scroll
+  statement: 'https://google.com', //Link to your cookie statement page
+  performace: ['JSESSIONID'], //Cookies in the performance category.
+  analytics: ['ga'], //Cookies in the analytics category.
+  marketing: [SSID'] //Cookies in the marketing category.
+});</code></pre>
+
+                <p>Now the notice will be visible on page load at the bottom of the screen. Clicking on cookie settings will display a modal window, with 4 cookie categories: essential, performance, analytics and marketing. Everything is checked by default. Cookies listed in the config file for each category will be deleted on page load, if user is opted our from a specific category.</p>
+
+                <p><strong>Loading scripts after the cookies are enabled</strong></p>
+                <p>You can listen to the javascript event called gdprCookiesEnabled to load scripts only when the cookies are enabled by the user. For example, to load a specific tracking tool like a Facebook pixel, wrap its code like so:</p>
+
+                <pre class="language-javascript"><code class="language-javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+  document.addEventListener('gdprCookiesEnabled', function (e) {
+    if(e.detail.marketing) { //checks if marketing cookies are enabled
+      //facebook pixel code
+    }
+  });
+&lt;/script&gt;</code></pre>
+
+                <p><strong>How can i translate the plugin?</strong></p>
+                <p>Duplicate the src/langs/en.js file, rename it, translate it and include it before your configuration runs. Define the locale name in the locale parameter.</p>
+
+                <p><strong>Is this totally GDPR compatible?</strong></p>
+                <p>It works for us, might not work for you. I don't know, i'm not a lawyer.</p>
+                <p><img src="https://i.imgur.com/oA6KO7f.gif" /></p>
+
+                <p><strong>How can i include a button to show the cookie settings modal?</strong>
+                <p>Simply add the classname 'gdpr-cookie-notice-settings-button' to any element, like <a href="#" class="gdpr-cookie-notice-settings-button">this</a>.</p>
+
+                <p><strong>How can i change the colors and stuff?</strong>
+                <p>Well, its just css, so you could overwrite the styles in your own css files. OR, run <code>npm install</code>, edit the sass variables at the top of <code>src/sass/_gdpr-cookie-notice.scss</code> and run <code>gulp</code> to generate the new files in the <code>src</code> folder.</p>
+
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="dist/script.js" type="text/javascript"></script>
+
+    <script>
+    gdprCookieNotice({
+      implicit: true,
+      statement: 'https://www.nold.io',
+      performace: ['JSESSIONID'],
+      analytics: ['_gat', 'ga'],
+      marketing: ['SSID']
+    });
+    </script>
+
+    <script type="text/javascript">
+    document.addEventListener('gdprCookiesEnabled', function (e) {
+      if(e.detail.marketing) {
+        console.log('marketing cookies are enabled');
+      }
+    });
+    </script>
+
+  </body>
+</html>
