@@ -21,6 +21,7 @@
                 <strong>Include the CSS and Javascript files:</strong>
                 <pre class="language-html"><code class="language-html">&lt;script type=&quot;text/javascript&quot; src=&quot;/gdpr-cookie-notice/dist/script.js&quot;&gt;&lt;/script&gt;</code></pre>
                 <pre class="language-html"><code class="language-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/gdpr-cookie-notice/dist/style.css&quot; /&gt;</code></pre>
+                <p>The script needs the init at the bottom of the page, before closing body tag.</div>
 
                 <strong>Init the plugin with the following config file</strong>
                 <pre class="language-javascript"><code class="language-javascript">gdprCookieNotice({
@@ -32,7 +33,7 @@
   statement: 'https://google.com', //Link to your cookie statement page
   performace: ['JSESSIONID'], //Cookies in the performance category.
   analytics: ['ga'], //Cookies in the analytics category.
-  marketing: [SSID'] //Cookies in the marketing category.
+  marketing: ['SSID'] //Cookies in the marketing category.
 });</code></pre>
 
                 <p>Now the notice will be visible on page load at the bottom of the screen. Clicking on cookie settings will display a modal window, with 4 cookie categories: essential, performance, analytics and marketing. Everything is checked by default. Cookies listed in the config file for each category will be deleted on page load, if user is opted our from a specific category.</p>
