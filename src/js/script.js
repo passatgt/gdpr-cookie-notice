@@ -9,7 +9,7 @@ function gdprCookieNotice(config) {
   var modalLoaded = false;
   var noticeLoaded = false;
   var cookiesAccepted = false;
-  var categories = ['performace', 'analytics', 'marketing'];
+  var categories = ['performance', 'analytics', 'marketing'];
 
   // Default config options
   if(!config.locale) config.locale = 'en';
@@ -69,7 +69,7 @@ function gdprCookieNotice(config) {
     var value = {
       date: new Date(),
       necessary: true,
-      performace: true,
+      performance: true,
       analytics: true,
       marketing: true
     };
@@ -174,7 +174,7 @@ function gdprCookieNotice(config) {
     input.remove();
 
     // Load other categories if needed
-    if(config.performace) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performace');
+    if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance');
     if(config.analytics) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_analytics');
     if(config.marketing) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_marketing');
 
@@ -183,7 +183,7 @@ function gdprCookieNotice(config) {
 
     // Update checkboxes based on stored info(if any)
     if(currentCookieSelection) {
-      document.getElementById(pluginPrefix+'-cookie_performace').checked = currentCookieSelection.performace;
+      document.getElementById(pluginPrefix+'-cookie_performance').checked = currentCookieSelection.performance;
       document.getElementById(pluginPrefix+'-cookie_analytics').checked = currentCookieSelection.analytics;
       document.getElementById(pluginPrefix+'-cookie_marketing').checked = currentCookieSelection.marketing;
     }

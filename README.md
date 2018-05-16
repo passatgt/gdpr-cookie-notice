@@ -19,7 +19,7 @@ gdprCookieNotice({
   domain: '.yoursite.com', //If you run the same cookie notice on all subdomains, define the main domain starting with a .
   implicit: true, //Accept cookies on page scroll automatically
   statement: 'https://google.com', //Link to your cookie statement page
-  performace: ['JSESSIONID'], //Cookies in the performance category.
+  performance: ['JSESSIONID'], //Cookies in the performance category.
   analytics: ['ga'], //Cookies in the analytics category.
   marketing: [SSID'] //Cookies in the marketing category.
 });
