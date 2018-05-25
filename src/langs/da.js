@@ -10,8 +10,8 @@ gdprCookieNoticeLocales.da = {
   cookie_essential_desc: 'Nødvendige cookies gør websitet brugbart og sørger for basale funktioner som navigation og adgang til låste sektioner på sitet. Websitet fungerer ikke uden disse cookies.',
   cookie_performance_title: 'Præference cookies',
   cookie_performance_desc: 'Disse cookies bruges til at forbedre oplevelsen og funktionaliteten men er ikke essentielle. For eksempel kan de gemme dit foretrukne sprog og/eller hvilken region du er i.',
-  cookie_analytics_title: 'Statistik cookies',
-  cookie_analytics_desc: 'We use analytics cookies to help us measure how users interact with website content, which helps us customize our websites and application for you in order to enhance your experience.',
+  cookie_analytics_title: 'Analytics cookies',
+  cookie_analytics_desc: 'Vi bruger analytics cookies til at måle hvordan websitets indhold bruges, hvilket hjælper os med at skræddersy websitet til dig så du får den bedste oplevelse.',
   cookie_marketing_title: 'Marketing cookies',
-  cookie_marketing_desc: 'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.'
+  cookie_marketing_desc: 'Disse cookies bruges til at gøre reklamer mere relevante for dig. Det er meningen at de reklamer der vises er relevante for den individuelle bruger og derved mere værdifulde for udbydere og tredjeparts annoncører.'
 }
