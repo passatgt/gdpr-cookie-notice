@@ -6,7 +6,7 @@ window["gdpr-cookie-notice-templates"]["bar.html"] = "<div class=\"gdpr-cookie-n
     "  <nav class=\"gdpr-cookie-notice-nav\">\n" +
     "    <a href=\"#\" class=\"gdpr-cookie-notice-nav-item gdpr-cookie-notice-nav-item-settings\">{settings}</a>\n" +
     "    <a href=\"#\" class=\"gdpr-cookie-notice-nav-item gdpr-cookie-notice-nav-item-accept gdpr-cookie-notice-nav-item-btn\">{accept}</a>\n" +
-    "  </div>\n" +
+    "  </nav>\n" +
     "</div>\n" +
     ""; 
 
