@@ -1,5 +1,14 @@
 {
-  "dependencies": {},
+  "name": "gdpr-cookie-notice",
+  "version": "0.0.2",
+  "description": "Solution to show a gdpr compliant cookie notice on your website",
+  "author": "Peter Viszt (https://visztpeter.me/)",
+  "homepage": "https://passatgt.github.io/gdpr-cookie-notice/",
+  "repository": "github:passatgt/gdpr-cookie-notice",
+  "keywords": [
+    "gdpr",
+    "cookie"
+  ],
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "ecstatic": "^3.2.0",
