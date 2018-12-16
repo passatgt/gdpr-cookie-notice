@@ -21,7 +21,7 @@ gdprCookieNotice({
   statement: 'https://google.com', //Link to your cookie statement page
   performance: ['JSESSIONID'], //Cookies in the performance category.
   analytics: ['ga'], //Cookies in the analytics category.
-  marketing: [SSID'] //Cookies in the marketing category.
+  marketing: ['SSID'] //Cookies in the marketing category.
 });
 ```
 
