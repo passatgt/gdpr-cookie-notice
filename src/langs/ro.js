@@ -1,5 +1,5 @@
 //Add strings
-gdprCookieNoticeLocales.en = {
+gdprCookieNoticeLocales.ro = {
     description: 'Utilizăm modulele cookie pentru a vă oferi o experiență mai bună de navigare, pentru a personaliza conținutul și anunțurile, pentru a oferi funcții media sociale și pentru a analiza traficul nostru. Citiți despre modul în care folosim modulele cookie și cum le puteți controla făcând clic pe Setări cookie. Sunteți de acord cu cookie-urile noastre dacă continuați să utilizați acest site web.',
     settings: 'Setările cookie',
     accept: 'Acceptați cookie-uri',
