@@ -17,6 +17,11 @@ function gdprCookieNotice(config) {
   if(!config.domain) config.domain = null;
   if(!config.expiration) config.expiration = 30;
 
+  // Use 'en' locale if current locale doesn't exist
+  if (typeof gdprCookieNoticeLocales[config.locale] === 'undefined') {
+    config.locale = 'en';
+  }
+
   // Get the users current cookie selection
   var currentCookieSelection = getCookie();
   var cookiesAcceptedEvent = new CustomEvent('gdprCookiesEnabled', {detail: currentCookieSelection});
