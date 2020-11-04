@@ -1,6 +1,6 @@
 {
   "name": "gdpr-cookie-notice",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Solution to show a gdpr compliant cookie notice on your website",
   "author": "Peter Viszt (https://visztpeter.me/)",
   "homepage": "https://passatgt.github.io/gdpr-cookie-notice/",
