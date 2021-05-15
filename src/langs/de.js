@@ -1,9 +1,9 @@
 //Add strings
-gdprCookieNoticeLocales.en = {
-  description: 'Diese Webseite verwendet Cookies, um die Nutzererfahrung zu verbessern und den Benutzern bestimmte Dienste und Funktionen bereitzustellen. Unter „Cookie Einstellungen“ können Sie mehr darüber erfahren, wie Cookies verwendet werden und Einstellungen vornehmen. Durch das Klicken von „Cookies zulassen“, oder durch die Benutzung dieser Website, geben Sie dieser Internetseite die Erlaubnis, Informationen in Form von Cookies auf Ihrem Gerät zu speichern.'
-  settings: 'Cookie Einstellungen',
+gdprCookieNoticeLocales.de = {
+  description: 'Diese Webseite verwendet Cookies, um die Nutzererfahrung zu verbessern und den Benutzern bestimmte Dienste und Funktionen bereitzustellen. Unter „Cookie-Einstellungen“ können Sie mehr darüber erfahren, wie Cookies verwendet werden und Einstellungen vornehmen. Durch das Klicken von „Cookies zulassen“, oder durch die Benutzung dieser Website, geben Sie dieser Internetseite die Erlaubnis, Informationen in Form von Cookies auf Ihrem Gerät zu speichern.'
+  settings: 'Cookie-Einstellungen',
   accept: 'Cookies zulassen',
-  statement: 'Unser Cookie Erklärung',
+  statement: 'Unsere Cookie-Erklärung',
   save: 'Einstellungen speichern',
   always_on: 'Immer an',
   cookie_essential_title: 'Notwendige Cookies',
