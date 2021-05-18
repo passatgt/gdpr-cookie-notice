@@ -1,0 +1,32 @@
+name: CI
+
+on: push
+
+jobs:
+  gulp_jobs:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version:
+          - 8
+    name: Node.js ${{ matrix.node_version }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Show tool versions
+        run: |
+          node --version
+          npm --version
+          which gulp
+          gulp --version
+      - name: Install Node.js packages
+        run: npm install
+      - name: Run gulp jobs
+        run: |
+          gulp lint
+          gulp styles:sass
+          gulp javascript
+          gulp views:compile
