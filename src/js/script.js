@@ -82,7 +82,7 @@ function gdprCookieNotice(config) {
     // If request was coming from the modal, check for the settings
     if(save) {
       for (var i = 0; i < categories.length; i++) {
-        // Ensure the id exists
+        // Ensure the element exists before assigning the checked value
         if (document.getElementById(pluginPrefix+'-cookie_'+categories[i])) {
           value[categories[i]] = document.getElementById(pluginPrefix+'-cookie_'+categories[i]).checked;
         }
