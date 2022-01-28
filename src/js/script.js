@@ -82,7 +82,10 @@ function gdprCookieNotice(config) {
     // If request was coming from the modal, check for the settings
     if(save) {
       for (var i = 0; i < categories.length; i++) {
-        value[categories[i]] = document.getElementById(pluginPrefix+'-cookie_'+categories[i]).checked;
+        // Ensure the id exists
+        if (document.getElementById(pluginPrefix+'-cookie_'+categories[i])) {
+          value[categories[i]] = document.getElementById(pluginPrefix+'-cookie_'+categories[i]).checked;
+        }
       }
     }
     gdprCookies.set(namespace, value, { expires: config.expiration, domain: config.domain });
