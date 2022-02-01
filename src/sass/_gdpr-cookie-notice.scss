@@ -26,6 +26,7 @@ $icon_caret: 'data:image/svg+xml;utf8,<svg height="12" viewBox="0 0 8 12" width=
   transition: all ease 1s;
   transform: translateY(100%);
   z-index: 1000;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -115,7 +116,6 @@ $icon_caret: 'data:image/svg+xml;utf8,<svg height="12" viewBox="0 0 8 12" width=
     }
 
     &-title {
-      font-family: SanFranciscoText-Semibold;
       font-size: 18px;
       color: $modal_title;
       font-weight: 600;
