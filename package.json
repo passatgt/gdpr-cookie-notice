@@ -13,7 +13,7 @@
     "babel-eslint": "^8.2.3",
     "ecstatic": "^3.2.0",
     "event-stream": "^3.3.4",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
